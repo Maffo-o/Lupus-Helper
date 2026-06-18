@@ -1,0 +1,98 @@
+import { useState } from 'react'
+import RolesListElement from './rolesListElement' 
+import '../index.css'
+
+function RolesList({onSet, setOrder}) {
+
+    const [rolesList, setRoles] = useState([
+        {name: "Contadino", team: "Villaggio", amount: 0, order: -1, max: 99, power: "Ruolo di base della squadra del villaggio"},
+        {name: "Veggente", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte puoi scoprire se un giocatore appartiene alla squadra dei lupi o no"},
+        {name: "Alchimista", team: "Villaggio", amount: 0, order: 11, max: 1, power: "Ogni notte ti svegli dopo i lupi e scopri chi hanno scelto di uccidere. Hai due pozioni, una per salvare e una per uccidere, puoi usarle entrambe solo una volta per partita e non per forza nella stessa notte"},
+        {name: "Guardiano", team: "Villaggio", amount: 0, order: 6, max: 1, power: "Ogni notte puoi scegliere un giocatore da proteggere per quella notte"},
+        {name: "Oracolo", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte puoi ricevere indizi dai giocatori morti, ma possono solo indicare"},
+        {name: "Sindaco", team: "Villaggio", amount: 0, order: -1, max: 1, power: "La prima volta che vieni linciato, puoi rivelare il tuo ruolo e salvarti, da quel momento il tuo voto per il linciaggio vale doppio e in caso di parità scegli tu chi viene linciato"},
+        {name: "Capro Espiatorio", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Durante il linciaggio puoi sacrificarti per salvare il giocatore che stava per essere eliminato ed essere linciato al suo posto"},
+        {name: "Investigatore", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte scegli due giocatori escluso te stesso per scoprire se appartengono alla stessa squadra"},
+        {name: "Anziano del Villaggio", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Non può essere ucciso dai lupi ma muore automaticamente dopo alcune notti a discrezione del narratore"},
+        {name: "Bambina", team: "Villaggio", amount: 0, order: 8, max: 1, power: "Di notte quando i lupi si svegliano puoi cercare di spiare ma se vieni scoperta muori in aggiunta al giocatore scelto dai lupi"},
+        {name: "Cortigiana", team: "Villaggio", amount: 0, order: 6, max: 1, power: "Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te"},
+        {name: "Gemelli", team: "Villaggio", amount: 0, order: 1, max: 2, power: "Entrambi sanno chi è l'altro gemello, se uno dei due muore anche l'altro subisce la stessa sorte"},
+        {name: "Licantropo", team: "Villaggio", amount: 0, order: 14, max: 1, power: "Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire"},
+        {name: "Confessore", team: "Villaggio", amount: 0, order: 12, max: 1, power: "Una volta per partita, di notte, scegli un giocatore, il giocatore scelto dopo essersi svegliato dovrà mostrare la sua carta ad un altro giocatore a sua scelta"},
+        {name: "Sacerdote", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte se uno o più giocatori sono stati uccisi la notte precedente, puoi guardare il ruolo di uno di essi"},
+        {name: "Cacciatore", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Quando muori, durante il linciaggio o ucciso dai lupi, scegli un altro giocatore da uccidere immediatamente"},
+        {name: "Appestato", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Quando vieni ucciso dai lupi, la notte seguente non potranno uccidere nessuno, in modo simile se vieni linciato, il giorno dopo non ci sarà un linciaggio"},
+        {name: "Massoni", team: "Villaggio", amount: 0, order: 14, max: 99, power: "I massoni sanno chi sono gli altri massoni, nessun giocatore può parlare direttamente o indirettamente dei massoni, chi lo fa verrà ucciso quella notte dalla società segreta. I massoni si svegliano ogni notte per ultimi e vengono informati di quale giocatore ha usato un potere su uno di loro, non sanno né di che potere si tratta né su che membro del gruppo"},
+        {name: "Guardone", team: "Villaggio", amount: 0, order: 3, max: 1, power: "Ogni notte scegli un giocatore e se si sveglia di notte, ti svegli insieme a lui, se appartiene alla squadra dei lupi, tu muori"},
+        {name: "Consigliere", team: "Villaggio", amount: 0, order: 12, max: 1, power: "Ogni notte puoi scegliere un giocatore a parte te stesso e decidere il voto di quel giocatore varrà doppio o sarà nullo per quel giorno"},
+        {name: "Sfigato", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Appari nella squadra dei lupi se ispezionato ma appartieni alla squadra del villaggio"},
+        {name: "Postino", team: "Villaggio", amount: 0, order: 2, max: 1, power: "Durante la prima notte, ti svegli e puoi scegliere uno dei tuoi due vicini di posto e rivelargli la tua carta"},
+        {name: "Principe", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Se verresti ucciso di notte, l'attacco viene invece deviato su uno dei tuoi due vicini di posto originali"},
+        {name: "Paranoico", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte sai se ci sono dei giocatori della squadra dei lupi nelle tue vicinanze"},
+        //
+        {name: "Lupo", team: "Lupi", amount: 0, order: 8, max: 99, power: "Ruolo di base della squadra dei lupi, di notte si svegliano tutti insieme e decidono chi uccidere"},
+        {name: "Cultisti", team: "Lupi", amount: 0, order: 1, max: 99, power: "Sai chi sono i lupi e vinci con loro ma i lupi non sanno chi sono i cultisti, non ti svegli insieme ai lupi per uccidere. Appaiono come buoni se ispezionati ma sono nella squadra dei lupi"},
+        {name: "Cucciolo di Lupo", team: "Lupi", amount: 0, order: 8, max: 1, power: "Se vieni eliminato, la notte successiva i lupi potranno eliminare due giocatori"},
+        {name: "Matriarca", team: "Lupi", amount: 0, order: 9, max: 1, power: "Una sola volta per partita, scegli se il giocatore ucciso dai lupi, al posto di morire, si trasformerà in un lupo, anche se difeso"},
+        {name: "Burattinaio", team: "Lupi", amount: 0, order: 8, max: 1, power: "Se durante il linciaggio voti per il giocatore con il maggior numero di voti, verrà invece ucciso il giocatore al secondo posto"},
+        {name: "Lupo Non-Morto", team: "Lupi", amount: 0, order: 8, max: 1, power: "Puoi segretamente votare per il linciaggio durante il giorno anche da morto"},
+        {name: "Assassino", team: "Lupi", amount: 0, order: 7, max: 1, power: "Non ti svegli coi lupi e appari come buono se ispezionato. Ogni notte puoi decidere se svegliarti con i lupi, se lo fai d’ora in poi dovrai svegliarti sempre con loro e perdi l’abilità di apparire come buono se ispezionato"},
+        {name: "Fattucchiera", team: "Lupi", amount: 0, order: 4, max: 1, power: "Ogni notte scegli un giocatore, se il suo ruolo viene ispezionato, apparirà della squadra opposta per quel turno"},
+        {name: "Carceriere", team: "Lupi", amount: 0, order: 9, max: 1, power: "Ogni due notti scegli un giocatore che non potrà svegliarsi quel giorno"},
+        {name: "Stregone", team: "Lupi", amount: 0, order: 9, max: 1, power: "Una volta per partita puoi scambiare il ruolo di due giocatori, se uno dei due era un lupo, dopo aver ricevuto il nuovo ruolo, muore"},
+        {name: "Lupo Grasso", team: "Lupi", amount: 0, order: 8, max: 1, power: "Finché sei vivo i due giocatori vicini a te appariranno nella squadra dei lupi se esaminati"},
+        //
+        {name: "Becchino", team: "Neutrale", amount: 0, order: 15, max: 1, power: "Una sola volta per partita, quando un giocatore muore di notte, puoi scambiare il tuo ruolo con il suo, da adesso in poi avrai il suo potere e farai parte di quella squadra"},
+        {name: "Pifferaio", team: "Neutrale", amount: 0, order: 13, max: 1, power: "Ogni notte i giocatori incantati si svegliano insieme al pifferaio e scelgono che giocatore incantare, se tutti i giocatori vivi sono incantati vincono"},
+        {name: "Ubriacone", team: "Neutrale", amount: 0, order: 15, max: 1, power: "Scopri il tuo ruolo solo dopo alcuni turni a discrezione del narratore"},
+        {name: "Scemo del Villaggio", team: "Neutrale", amount: 0, max: 1, order: -1, power: "Vinci se riesci a farti linciare dal villaggio"},
+        {name: "Criceto Mannaro", team: "Neutrale", amount: 0, order: 10, max: 1, power: "Ti svegli insieme ai lupi ma non sanno che sei il criceto, ti svegli di nuovo dopo di loro e puoi uccidere un altro giocatore (anche lupi), non sei immune all'eliminazione dei lupi, se resti l'unico vivo vinci"},
+        {name: "Piromane", team: "Neutrale", amount: 0, order: -1, max: 1, power: "A inizio partita i giocatori vengono divisi in due secondo un criterio deciso dal narratore (altezza, colore capelli, sesso...), vinci se tutti i giocatori del gruppo a cui non appartieni muoiono"},
+        {name: "Sosia", team: "Neutrale", amount: 0, order: 2, max: 1, power: "A inizio partita scegli uno dei giocatori seduti vicino a te, d'ora in poi vinci con lui, se muore, anche tu muori"},
+        {name: "Maledetto", team: "Neutrale", amount: 0, order: 16, max: 1, power: "Ogni notte scegli un giocatore e dagli questa carta, a fine partita chi ha il ruolo del maledetto perde"},
+        {name: "Sicario", team: "Neutrale", amount: 0, order: -1, max: 1, power: "Se verresti ucciso di notte, uccidi invece una persona casuale scelta dal narratore appartenente alla squadra opposta di quella che ti avrebbe ucciso. Se a fine partita è ancora vivo, vince al posto della squadra che avrebbe vinto normalmente"},
+        {name: "Innamorati", team: "Neutrale", amount: 0, order: 1, max: 2, power: "Se alla fine del giorno sono seduti vicini, vincono. Se uno muore anche l’altro muore"},
+    ]);
+    function OnEdit(index, amount) {
+        let newAmount = rolesList[index].amount;
+        const maxAmount = rolesList[index].max;
+        if (maxAmount == 2)
+            newAmount += (amount *2);
+        else 
+            newAmount += amount;
+        newAmount = Math.max(0, newAmount);
+        newAmount = Math.min(maxAmount, newAmount);
+
+        const updated = [...rolesList];
+        updated[index] = {
+            ...updated[index],
+            amount: newAmount
+        };
+        setRoles(updated);
+
+        const newTemp = [];
+        updated.forEach(element => {
+            if (element.amount > 0) {
+                for (let i = 0; i < element.amount; i++)
+                    newTemp.push({ name: element.name, team: element.team, order: element.order, power: element.power });
+            }
+        });
+        onSet(newTemp);
+        setOrder(newTemp);
+    }
+
+    return <>
+        <div>
+            <h2>Seleziona i ruoli</h2>
+        </div>
+        <div>
+            <ol className="full_list">
+            {rolesList.map((element, index) =>
+                <RolesListElement className="element_text" element={element} prevElement={index == 0 ? rolesList[index] : rolesList[index -1]} index={index} onEdit={OnEdit} key={index}/>
+            )}
+            </ol>      
+        </div>
+    </>
+}
+
+export default RolesList
