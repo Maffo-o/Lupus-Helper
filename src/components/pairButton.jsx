@@ -14,7 +14,7 @@ function PairButton({element, index, siblings, curseElement, curse, drunk}) {
                 break;
             case 1:
                 setIcon(["🟦", "🟥", "🟨"]);
-                if (drunk)
+                if (drunk || curse == curseElement)
                     setTripleState(2);
                 else if (element.name == "Sfigato" || siblings)
                     setTripleState(1);
