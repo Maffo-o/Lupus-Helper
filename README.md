@@ -8,11 +8,11 @@ Non è pensato per i ruoli standard di Lupus ma una semplice variante che utiliz
 ![alt text](src/assets/screenshot2.png)
 
 Ruoli
-| Ruolo  | Potere | Info |
+| Ruolo  | Potere | Extra Info |
 |------- | ------ | ---- |
 | VILLAGGIO | | |
 | Contadino | Ruolo di base della squadra del villaggio | |
-| Veggente | Ogni notte puoi scoprire se un giocatore appartiene alla squadra dei lupi o no | Riceve solo risposte sì/no, non scopre effettivamente il ruolo del giocatore ispezionato, I giocatori neutrali non appaiono come lupi, Solitamente si sveglia prima dei personaggi con poteri di cambiare fazione ma dopo quelli con potere di alterare le apparenze |
+| Veggente | Ogni notte puoi scoprire se un giocatore appartiene alla squadra dei lupi o no | Riceve solo risposte sì/no, non scopre effettivamente il ruolo del giocatore ispezionato, i giocatori neutrali non appaiono come lupi |
 | Alchimista | Ogni notte ti svegli dopo i lupi e scopri chi hanno scelto di uccidere. Hai due pozioni, una per salvare e una per uccidere, puoi usarle entrambe solo una volta per partita e non per forza nella stessa notte | Dopo aver usato la pozione per salvare non scopri più chi hanno scelto di uccidere i lupi di notte, Si può optare di fargli usare una sola pozione, a sua scelta quale |
 | Guardiano | Ogni notte puoi scegliere un giocatore da proteggere per quella notte | Non puoi proteggere te stesso e nemmeno la stessa persona due notti di fila, Puoi scegliere di non usare il potere |
 | Oracolo | Ogni notte puoi ricevere indizi dai giocatori morti, ma possono solo indicare | Da usare senza role-reveal |
@@ -21,7 +21,7 @@ Ruoli
 | Investigatore | Ogni notte scegli due giocatori escluso te stesso per scoprire se appartengono alla stessa squadra | Se uno o entrambi i bersagli sono neutrali, il risultato è sempre squadre diverse, Non può scegliere giocatori che hanno rivelato la propria carta |
 | Anziano del Villaggio | Non può essere ucciso dai lupi ma muore automaticamente dopo alcune notti a discrezione del narratore | Il numero della notte in cui muore solitamente è pari circa al numero di lupi |
 | Bambina | Di notte quando i lupi si svegliano puoi cercare di spiare ma se vieni scoperta muori in aggiunta al giocatore scelto dai lupi |  |
-| Cortigiana | Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te | - Anche scegliendo un giocatore appartenente alla squadra dei lupi, esso sarà immune agli altri poteri - Puoi scegliere di non usare il potere e non puoi usarlo su te stesso |
+| Cortigiana | Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te | Anche scegliendo un giocatore appartenente alla squadra dei lupi, esso sarà immune agli altri poteri, Puoi scegliere di non usare il potere e non puoi usarlo su te stesso |
 | Gemelli | Entrambi sanno chi è l'altro gemello, se uno dei due muore anche l'altro subisce la stessa sorte | Anche i poteri, come quello della matriarca si applicano ad entrambi, Se il veggente sceglie di ispezionare un gemello, scopre anche chi è l’altro |
 | Licantropo | Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire |  |
 | Confessore | Una volta per partita, di notte, scegli un giocatore, il giocatore scelto dopo essersi svegliato dovrà mostrare la sua carta ad un altro giocatore a sua scelta |  |
