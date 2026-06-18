@@ -3,8 +3,8 @@ Un semplice helper per aiutare il narratore a gestire partite di Lupus in Tabula
 Non è pensato per i ruoli standard di Lupus ma una semplice variante che utilizzo di solito con i miei amici, a seguire troverete una tabella con tutti i ruolo presenti in questo tool e le rispettive regole.
 È composto da solo due semplici schermate: 
 1) la prima schermata permette di impostare i nomi dei partecipanti e selezionare quali ruoli si vogliono utilizzare
-2) la seconda è la schermata di gioco con semplici funzioni che permettono al narratore di tenere traccia di poteri, uccisioni...
 ![alt text](src/assets/screenshot1.png)
+2) la seconda è la schermata di gioco con semplici funzioni che permettono al narratore di tenere traccia di poteri, uccisioni...
 ![alt text](src/assets/screenshot2.png)
 
 Ruoli
