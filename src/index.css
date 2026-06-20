@@ -145,7 +145,7 @@ p {
 
 .button {
   font-size: 16px;
-  padding: 5px 10px 9px;
+  padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -163,7 +163,7 @@ p {
     margin-right: 5px;
     margin-bottom: 5px;
     font-size: 12px;
-    padding: 9px 5px 9px;
+    padding: 9px 5px;
   }
 
   &:hover {
@@ -191,7 +191,7 @@ p {
 
 .input_field {
   font-size: 24px;
-  padding: 11px 10px 6px;
+  padding: 10px 10px;
   border-radius: 5px;
   margin-right: 10px;
   width: 200px;
@@ -206,7 +206,7 @@ p {
   @media (max-width: 400px) {
     width: 150px;
     font-size: 20px;
-    padding: 6px 10px 4px;
+    padding: 6px 10px;
   }
 
   &:hover {
@@ -237,7 +237,13 @@ input[type=text] {
   transition: border-color 0.3s;
   resize: none;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
+    width: 350px !important;
+    height: 200px !important;
+    font-size: 22px;
+    padding: 6px 10px 4px;
+  }
+  @media (max-width: 600px) {
     width: 250px !important;
     height: 150px !important;
     font-size: 20px;
