@@ -5,6 +5,7 @@ import '../index.css'
 function PairListElement({element, name, index, rolesList, curse, drunk}) {
 
   const buttonsCount = [0, 1, 2, 3, 4, 5];
+  const [alive, setAlive] = useState(true);
   const [siblings, setSiblings] = useState(false);
   useEffect(() => {CalculateSiblings();}, []);
   function CalculateSiblings() {
@@ -24,6 +25,9 @@ function PairListElement({element, name, index, rolesList, curse, drunk}) {
     else
       alert(element.power);
   }
+  function ChangeAlive() {
+    setAlive(!alive);
+  }
 
   return <>
     <div>
@@ -35,7 +39,7 @@ function PairListElement({element, name, index, rolesList, curse, drunk}) {
     </div>
     <div className="button_holder">
       {buttonsCount.map((i) =>
-        <PairButton className="element_text" index={i} element={element} siblings={siblings} curseElement={index} curse={curse} drunk={drunk == index} key={i}/>
+        <PairButton className="element_text" index={i} element={element} siblings={siblings} isAlive={alive} setAlive={ChangeAlive} curseElement={index} curse={curse} drunk={drunk == index} key={i}/>
       )}
     </div>
   </>

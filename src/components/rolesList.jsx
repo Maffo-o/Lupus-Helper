@@ -17,7 +17,7 @@ function RolesList({onSet, setOrder}) {
         {name: "Bambina", team: "Villaggio", amount: 0, order: 8, max: 1, power: "Di notte quando i lupi si svegliano puoi cercare di spiare ma se vieni scoperta muori in aggiunta al giocatore scelto dai lupi"},
         {name: "Cortigiana", team: "Villaggio", amount: 0, order: 6, max: 1, power: "Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te"},
         {name: "Gemelli", team: "Villaggio", amount: 0, order: 1, max: 2, power: "Entrambi sanno chi è l'altro gemello, se uno dei due muore anche l'altro subisce la stessa sorte"},
-        {name: "Licantropo", team: "Villaggio", amount: 0, order: 14, max: 1, power: "Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire"},
+        {name: "Licantropo", team: "Villaggio", amount: 0, order: 14, max: 99, power: "Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire"},
         {name: "Confessore", team: "Villaggio", amount: 0, order: 12, max: 1, power: "Una volta per partita, di notte, scegli un giocatore, il giocatore scelto dopo essersi svegliato dovrà mostrare la sua carta ad un altro giocatore a sua scelta"},
         {name: "Sacerdote", team: "Villaggio", amount: 0, order: 5, max: 1, power: "Ogni notte se uno o più giocatori sono stati uccisi la notte precedente, puoi guardare il ruolo di uno di essi"},
         {name: "Cacciatore", team: "Villaggio", amount: 0, order: -1, max: 1, power: "Quando muori, durante il linciaggio o ucciso dai lupi, scegli un altro giocatore da uccidere immediatamente"},

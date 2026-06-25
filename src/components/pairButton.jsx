@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import '../index.css'
 
-function PairButton({element, index, siblings, curseElement, curse, drunk}) {
+function PairButton({element, index, siblings, isAlive, setAlive, curseElement, curse, drunk}) {
 
     const [buttonState, setState] = useState(true);
     const [buttonTripleState, setTripleState] = useState(0);
     const [icon, setIcon] = useState([]);
-    useEffect(() => { ChangeIcon(); }, [siblings, curse, curseElement]);
+    useEffect(() => { ChangeIcon(); }, [siblings, curse, curseElement, isAlive]);
     function ChangeIcon() {
         switch (index) {
             case 0:
@@ -51,18 +51,25 @@ function PairButton({element, index, siblings, curseElement, curse, drunk}) {
                 temp = 0;
             setTripleState(temp);
         }
-        else
+        else 
+        {
             setState(!buttonState);
+            if (index == 0)
+                setAlive();
+        }          
     }
 
     return <>
-        {(index != 1 && index != 5) && <button className="button" onClick={OnToggle}>
+        {index == 0 && <button className="button" onClick={OnToggle}>
             {buttonState ? icon[0] : icon[1]}
         </button>}
-        {(index == 1 && index != 5) && <button className="button" onClick={OnToggle}>
+        {(index > 1 && index < 5 && isAlive) && <button className="button" onClick={OnToggle}>
+            {buttonState ? icon[0] : icon[1]}
+        </button>}
+        {(index == 1 && isAlive) && <button className="button" onClick={OnToggle}>
             {icon[buttonTripleState]}
         </button>}
-        {(index == 5 && curse != -1) && <button className="button" onClick={OnToggle}>
+        {(index == 5 && curse != -1 && isAlive) && <button className="button" onClick={OnToggle}>
             {buttonState ? icon[0] : icon[1]}
         </button>}
     </>
