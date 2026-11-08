@@ -1,11 +1,11 @@
 @font-face {
   font-family: Mezalia-Black;
-  src: url(./assets/Mezalia\ Sans\ Black.otf);
+  src: url(./assets/Mezalia_Sans_Black.otf);
 }
 
 @font-face {
   font-family: Mezalia-Bold;
-  src: url(./assets/Mezalia\ Sans\ Bold.otf);
+  src: url(./assets/Mezalia_Sans_Bold.otf);
 }
 
 :root {
@@ -278,7 +278,7 @@ input[type=text] {
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
-  cursor: default;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     font-size: 16px;
