@@ -8,4 +8,5 @@ Non è pensato per sostituire il gioco cartaceo ma aiutare a gestirlo, inoltre n
 ![alt text](src/assets/screenshot2.png)
 
 Carte Ruoli -> [Premi qui per scaricare le carte da stampare](https://drive.google.com/file/d/1Otb2JT-po8P2vSA9q9oxV-nDykezjb_W/view?usp=sharing)
+
 Regole Ruoli -> [Premi qui per vedere le regole di ogni ruolo](https://docs.google.com/document/d/14FWfCJR8JljtEdLg39nSgWKPbp_zUiMSxppwzCfbhAw/edit?usp=sharing)
