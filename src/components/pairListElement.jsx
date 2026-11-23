@@ -37,7 +37,7 @@ function PairListElement({element, name, index, rolesList, curse, drunk}) {
       {(drunk != index && element.team == "Lupi") && <span className="list_element bad_role" onClick={ShowPower}>{element.name}</span>}   
       {(drunk != index && element.team == "Neutrale") && <span className="list_element neutral_role" onClick={ShowPower}>{element.name}</span>}
     </div>
-    <div className="button_holder">
+    <div className={`button_holder${curse != -1 ? ' button_holder_curse' : ''}`}>
       {buttonsCount.map((i) =>
         <PairButton className="element_text" index={i} element={element} siblings={siblings} isAlive={alive} setAlive={ChangeAlive} curseElement={index} curse={curse} drunk={drunk == index} key={i}/>
       )}

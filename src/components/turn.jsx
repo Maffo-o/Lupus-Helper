@@ -12,13 +12,13 @@ function Turn({turnOrder}) {
         setIndex(temp);
     }
 
-    return <div>
-        <h2>Turno corrente</h2>
+    return <div className="turn_section">
+        <div className="turn_header">
+            <h2>Turno corrente</h2>
+            <button className="button" onClick={NextTurn} aria-label="Prossimo turno">➡️</button>
+        </div>
         <h3>{turnOrder[turnIndex].name}</h3>   
-        <div className="text_holder">          
-            <p className="power_text">{turnOrder[turnIndex].power}</p>
-            <button className="button" onClick={NextTurn}>➡️</button>
-        </div>      
+        <p className="power_text">{turnOrder[turnIndex].power}</p>
     </div>
 }
 

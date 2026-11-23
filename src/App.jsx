@@ -83,7 +83,7 @@ function App() {
   return <>
     <section className="center">
       <div>
-        <h1>Lupus in Tabula</h1>
+        <h1><a className="title_link" href="https://github.com/Maffo-o/Lupus-Helper" target="_blank" rel="noopener noreferrer">Lupus in Tabula</a></h1>
       </div>
       {selection == true && <PlayersList onSet={setTempPlayers}/>}
       {selection == true && <RolesList onSet={setTempRoles} setOrder={setOrder}/>}

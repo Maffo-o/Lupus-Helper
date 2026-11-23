@@ -8,6 +8,12 @@
   src: url(./assets/Mezalia_Sans_Bold.otf);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --text: #f3f4f6;
   --bg: #16171d;
@@ -45,7 +51,7 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: min(1126px, 100%);
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -65,17 +71,18 @@ h3 {
 
 h1 {
   font-family: "Mezalia-Black";
-  font-size: 120px;
-  margin: 100px 0 50px 0;
+  font-size: clamp(40px, 9vw, 120px);
+  line-height: 1.05;
+  margin: 0;
   cursor: default;
-  @media (max-width: 1024px) {
-    font-size: 60px;
-    margin: 20px 0;
-  }
-  @media (max-width: 600px) {
-    font-size: 50px;
-  }
 }
+
+.title_link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 h2 {
   font-size: 40px;
   line-height: 118%;
@@ -121,31 +128,33 @@ p {
 .center {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  width: 100%;
+  min-width: 0;
+  gap: clamp(16px, 2.5vw, 25px);
   place-content: center;
   place-items: center;
   flex-grow: 1;
+  padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 48px);
+}
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 15px;
-  }
-  @media (max-width: 600px) {
-    gap: 10px;
-  }
+.center > div {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .button_holder {
-  margin: 15px 0 20px 0;
-
-  @media (max-width: 600px) {
-    margin: 10px 0 20px 0;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 8px 0 16px;
 }
 
 .button {
   font-size: 16px;
   padding: 5px 10px;
+  min-height: 40px;
   border-radius: 5px;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -168,13 +177,6 @@ p {
 
   &:hover {
     border-color: var(--accent-border);
-  }
-}
-.input_button {
-  padding: 10px 10px;
-
-  @media (max-width: 400px) {
-    padding: 9px 5px 9px;
   }
 }
 .start_button {
@@ -204,7 +206,7 @@ p {
     margin-right: 5px;
   }
   @media (max-width: 400px) {
-    width: 150px;
+    width: 180px;
     font-size: 20px;
     padding: 6px 10px;
   }
@@ -244,7 +246,7 @@ input[type=text] {
     padding: 6px 10px 4px;
   }
   @media (max-width: 600px) {
-    width: 250px !important;
+    width: 300px !important;
     height: 150px !important;
     font-size: 20px;
     padding: 6px 10px 4px;
@@ -256,40 +258,133 @@ input[type=text] {
 }
 
 .full_list {
-  text-align: right;
-  padding: 0 100px 0 0;
-
-  @media (max-width: 1024px) {
-    padding: 0 40px 0 0;
-  }
-}
-.list_short {
+  width: min(100%, 760px);
+  margin: 0 auto;
   padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+.full_list > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.full_list .button,
+.button_holder .button {
+  margin: 0;
+}
+
+.full_list:not(.list_long) > div > .list_element:first-of-type {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+}
+
+.full_list:not(.list_short):not(.list_long) > div > .list_element:last-child {
+  justify-content: center;
+  min-width: 3em;
+}
+
+.list_short {
+  width: min(100%, 420px);
+}
+.game_players {
+  width: min(100%, 520px);
 }
 .list_long {
-  padding: 0 30px 0 0;
+  width: 100%;
+}
+.list_long > div:not(.button_holder) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.list_long .list_element {
+  min-width: 0;
+  text-align: left;
+}
+.list_long .button_holder .button {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+}
+.list_long .button_holder .button:only-child {
+  flex: 0 0 calc((100% - 32px) / 5);
+}
+.list_long .button_holder_curse .button:only-child {
+  flex-basis: calc((100% - 40px) / 6);
 }
 .list_element {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
   font-size: 25px;
   padding: 5px 10px;
   border-radius: 5px;
-  margin-right: 10px;
   color: var(--text-h);
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
   cursor: pointer;
+  overflow-wrap: anywhere;
 
   @media (max-width: 1024px) {
-    font-size: 16px;
+    font-size: 18px;
     padding: 11px 10px 7px 10px;
   }
-  @media (max-width: 600px) {
-    margin-right: 5px;
+}
+
+.player_input {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.player_input .input_field {
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+}
+
+.player_input .input_button {
+  flex: 0 0 44px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .full_list:not(.list_long) > div {
+    align-items: stretch;
+  }
+
+  .full_list:not(.list_long) > div > .list_element {
+    min-height: 44px;
+    padding: 8px 10px;
+    line-height: 1.25;
+  }
+
+  .full_list:not(.list_long) > div > .button {
+    flex: 0 0 44px;
+    min-height: 44px;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .full_list:not(.list_short):not(.list_long) > div > .list_element:last-child {
+    flex: 0 0 44px;
+    min-width: 0;
   }
 }
+
 .extra_spacing_top {
-  margin-top: 20px;
+  flex-basis: 100%;
+  height: 0;
+  margin-top: 16px;
 }
 
 .good_role {
@@ -302,21 +397,36 @@ input[type=text] {
   color: var(--neutral);
 }
 
+.turn_section {
+  width: min(100%, 520px);
+  text-align: center;
+}
+
+.turn_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.turn_header h2,
+.turn_header .button {
+  margin: 0;
+}
+
+.turn_header .button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
 .power_text {
   font-size: 25px;
   line-height: 118%;
-  width: 400px;
-  text-align: right;
-  margin-right: 20px;
 
   @media (max-width: 1024px) {
     font-size: 15px;
-    width: 200px;
   }
-}
-
-.text_holder {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
 }
