@@ -5,6 +5,7 @@ import PairList from './components/pairList'
 import Note from './components/note'
 import Turn from './components/turn'
 import Header from './components/header'
+import Modal from './components/modal'
 import translations from './components/translations'
 import './index.css'
 
@@ -19,13 +20,24 @@ function App() {
   const [shouldStart, setStart] = useState(false);
   const [language, setLanguage] = useState('it');
   const [listResetKey, setListResetKey] = useState(0);
+  const [modalState, setModalState] = useState({ isOpen: false, title: '', content: '' });
   const currentTranslations = translations[language];
+  
   useEffect(() => {
     if (shouldStart) {
       StartGame();
       setStart(false);
     }
   }, [shouldStart]);
+  
+  function ShowModal(title, content) {
+    setModalState({ isOpen: true, title, content });
+  }
+  
+  function CloseModal() {
+    setModalState({ isOpen: false, title: '', content: '' });
+  }
+  
   function CheckCanStart() {
     if (!selection) {
       ResetGame();
@@ -48,14 +60,14 @@ function App() {
 
     if (playerTempList.length >= 6) {
       if (filteredRoles.length > playerTempList.length)
-        alert(currentTranslations.tooManyRoles);
+        ShowModal(currentTranslations.error || 'Errore', currentTranslations.tooManyRoles);
       else if (filteredRoles.length < playerTempList.length)
-        alert(currentTranslations.notEnoughRoles);
+        ShowModal(currentTranslations.error || 'Errore', currentTranslations.notEnoughRoles);
       else
         setStart(true);
     }
     else
-      alert(currentTranslations.minimumPlayers);
+      ShowModal(currentTranslations.error || 'Errore', currentTranslations.minimumPlayers);
   }
   function StartGame() {
     setSelection(false);
@@ -123,6 +135,12 @@ function App() {
         </button>}
       </div>
     </section>
+    <Modal 
+      isOpen={modalState.isOpen}
+      title={modalState.title}
+      content={modalState.content}
+      onClose={CloseModal}
+    />
   </>
 }
 

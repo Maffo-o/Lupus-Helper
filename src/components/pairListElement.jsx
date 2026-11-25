@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PairButton from './pairButton' 
+import Modal from './modal'
 import translations from './translations'
 import '../index.css'
 
@@ -11,7 +12,11 @@ function PairListElement({element, name, index, rolesList, curse, drunk, languag
   const drunkRoleName = rolesList.find(role => role.name === "Ubriacone")?.translations?.[language]?.name ?? "Ubriacone";
   const [alive, setAlive] = useState(true);
   const [siblings, setSiblings] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+  
   useEffect(() => {CalculateSiblings();}, []);
+  
   function CalculateSiblings() {
     if (index == 0 && rolesList[rolesList.length -1].name == "Lupo Grasso")
       setSiblings(true);
@@ -23,12 +28,15 @@ function PairListElement({element, name, index, rolesList, curse, drunk, languag
     else if (index != rolesList.length -1 && rolesList[index +1].name == "Lupo Grasso")
       setSiblings(true);
   }
+  
   function ShowPower() {
+    let content = localizedRole.power;
     if (drunk == index)
-      alert(localizedRole.power + "\n" + currentTranslations.drunkPowerDisclosure);
-    else
-      alert(localizedRole.power);
+      content += "\n" + currentTranslations.drunkPowerDisclosure;
+    setModalContent(content);
+    setIsModalOpen(true);
   }
+  
   function ChangeAlive() {
     setAlive(!alive);
   }
@@ -46,6 +54,12 @@ function PairListElement({element, name, index, rolesList, curse, drunk, languag
         <PairButton className="element_text" index={i} element={element} siblings={siblings} isAlive={alive} setAlive={ChangeAlive} curseElement={index} curse={curse} drunk={drunk == index} key={i}/>
       )}
     </div>
+    <Modal 
+      isOpen={isModalOpen}
+      title={localizedRole.name}
+      content={modalContent}
+      onClose={() => setIsModalOpen(false)}
+    />
   </>
 }
 
