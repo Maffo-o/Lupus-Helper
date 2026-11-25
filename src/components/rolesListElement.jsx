@@ -18,10 +18,10 @@ function RolesListElement({element, prevElement, index, onEdit, language}) {
     
     return <>
         <div>
-            {element.team != prevElement.team && <div className="extra_spacing_top"/>}
-            {element.team == "Villaggio" && <span className="list_element good_role" onClick={ShowPower}>{localizedRole.name}</span>}
-            {element.team == "Lupi" && <span className="list_element bad_role" onClick={ShowPower}>{localizedRole.name}</span>}   
-            {element.team == "Neutrale" && <span className="list_element neutral_role" onClick={ShowPower}>{localizedRole.name}</span>}   
+            {element.teamId != prevElement.teamId && <div className="extra_spacing_top"/>}
+            {element.teamId == "village" && <span className="list_element good_role" onClick={ShowPower}>{localizedRole.name}</span>}
+            {element.teamId == "wolves" && <span className="list_element bad_role" onClick={ShowPower}>{localizedRole.name}</span>}   
+            {element.teamId == "neutral" && <span className="list_element neutral_role" onClick={ShowPower}>{localizedRole.name}</span>}   
             <button className="button" onClick={OnAdd}>
               ➕
             </button>

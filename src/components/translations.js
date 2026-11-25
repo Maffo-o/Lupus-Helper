@@ -16,6 +16,9 @@ const translations = {
     resetButton: "Resetta",
     startGame: "Inizia partita",
     endGame: "Termina partita",
+    teamVillage: "Villaggio",
+    teamWolves: "Lupi",
+    teamNeutral: "Neutrale",
   },
   en: {
     title: "Lupus in Tabula",
@@ -34,6 +37,9 @@ const translations = {
     resetButton: "Reset",
     startGame: "Start Game",
     endGame: "End Game",
+    teamVillage: "Village",
+    teamWolves: "Wolves",
+    teamNeutral: "Neutral",
   }
 };
 

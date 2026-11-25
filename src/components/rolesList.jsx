@@ -19,11 +19,14 @@ function RolesList({onSet, setOrder, language}) {
         rolesList.forEach(element => {
             for (let i = 0; i < element.amount; i++)
                 selectedRoles.push({
+                    id: element.id,
                     name: element.name,
                     team: element.team,
+                    teamId: element.teamId,
                     order: element.order,
                     power: element.power,
-                    translations: element.translations
+                    translations: element.translations,
+                    singleUsePower: element.singleUsePower
                 });
         });
         const savedAmounts = Object.fromEntries(rolesList.map(role => [role.name, role.amount]));

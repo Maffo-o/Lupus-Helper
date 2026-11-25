@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../index.css'
 
-function PairButton({element, index, siblings, isAlive, setAlive, curseElement, curse, drunk}) {
+function PairButton({element, index, siblings, isAlive, setAlive, curseElement, curse, drunk, enchanted, wolf}) {
 
     const [buttonState, setState] = useState(true);
     const [buttonTripleState, setTripleState] = useState(0);
@@ -16,15 +16,15 @@ function PairButton({element, index, siblings, isAlive, setAlive, curseElement, 
                 setIcon(["🟦", "🟥", "🟨"]);
                 if (drunk || curse == curseElement)
                     setTripleState(2);
-                else if (element.name == "Sfigato" || siblings)
+                else if (element.id == "loser" || siblings)
                     setTripleState(1);
-                else if (element.name == "Assassino" || element.name == "Cultisti")
+                else if (element.id == "assassin" || element.id == "cultists")
                     setTripleState(0);
-                else if (element.team == "Villaggio")
+                else if (element.teamId == "village")
                     setTripleState(0);
-                else if (element.team == "Lupi")
+                else if (element.teamId == "wolves")
                     setTripleState(1);
-                else if (element.team == "Neutrale")
+                else if (element.teamId == "neutral")
                     setTripleState(2);
                 break;
             case 2:
@@ -41,6 +41,9 @@ function PairButton({element, index, siblings, isAlive, setAlive, curseElement, 
                 if (curse == curseElement)
                     setState(false);
                 break;
+            case 6:
+                setIcon(["🙂", "✨"]);
+                break;            
         }
     }
     function OnToggle() {
@@ -63,13 +66,19 @@ function PairButton({element, index, siblings, isAlive, setAlive, curseElement, 
         {index == 0 && <button className="button" onClick={OnToggle}>
             {buttonState ? icon[0] : icon[1]}
         </button>}
-        {(index > 1 && index < 5 && isAlive) && <button className="button" onClick={OnToggle}>
+        {(index > 1 && index < 4 && isAlive) && <button className="button" onClick={OnToggle}>
             {buttonState ? icon[0] : icon[1]}
         </button>}
         {(index == 1 && isAlive) && <button className="button" onClick={OnToggle}>
             {icon[buttonTripleState]}
         </button>}
+        {(index == 4 && element.singleUsePower == 1 && isAlive) && <button className="button" onClick={OnToggle}>
+            {buttonState ? icon[0] : icon[1]}
+        </button>}
         {(index == 5 && curse != -1 && isAlive) && <button className="button" onClick={OnToggle}>
+            {buttonState ? icon[0] : icon[1]}
+        </button>}
+        {((index == 6 && isAlive && enchanted != -1)) && <button className="button" onClick={OnToggle}>
             {buttonState ? icon[0] : icon[1]}
         </button>}
     </>

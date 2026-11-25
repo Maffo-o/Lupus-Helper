@@ -17,6 +17,8 @@ function App() {
   const [playerTempList, setTempPlayers] = useState([]);
   const [useCurse, setCurse] = useState(-1);
   const [useDrunk, setDrunk] = useState(-1);
+  const [useEnchanted, setEnchanted] = useState(-1);
+  const [useWolf, setWolf] = useState(-1);
   const [shouldStart, setStart] = useState(false);
   const [language, setLanguage] = useState('it');
   const [listResetKey, setListResetKey] = useState(0);
@@ -45,17 +47,27 @@ function App() {
     }
 
     rolesTempList.forEach(element => {
-      if (element.name == "Maledetto")
+      if (element.id == "cursed")
         setCurse(Math.floor(Math.random() * playerTempList.length));
       else
         setCurse(-1);
 
-      if (element.name == "Ubriacone")
+      if (element.id == "drunk")
         setDrunk(Math.floor(Math.random() * playerTempList.length));
       else 
         setDrunk(-1);
+
+      if (element.id == "pied_piper")
+        setEnchanted(1);
+      else 
+        setEnchanted(-1);
+
+      if (element.id == "matriarch")
+        setWolf(1);
+      else 
+        setWolf(-1);
     });    
-    const filteredRoles = rolesTempList.filter(element => element.name !== "Maledetto" && element.name !== "Ubriacone");
+    const filteredRoles = rolesTempList.filter(element => element.id !== "cursed" && element.id !== "drunk");
     setTempRoles(filteredRoles);
 
     if (playerTempList.length >= 6) {
@@ -123,7 +135,7 @@ function App() {
       <Header language={language} onLanguageChange={setLanguage} />
       {selection == true && <PlayersList key={`players-${listResetKey}`} onSet={setTempPlayers} language={language}/>}
       {selection == true && <RolesList key={`roles-${listResetKey}`} onSet={setTempRoles} setOrder={setOrder} language={language}/>}
-      {selection == false && <PairList playersList={playerTempList} rolesList={rolesTempList} setOrder={setOrder} curse={useCurse} drunk={useDrunk} language={language}/>}
+      {selection == false && <PairList playersList={playerTempList} rolesList={rolesTempList} setOrder={setOrder} curse={useCurse} drunk={useDrunk} enchanted={useEnchanted} wolf={useWolf} language={language}/>}
       {selection == false && <Turn turnOrder={turnOrder} language={language}></Turn>}
       {selection == false && <Note language={language}></Note>}
       <div className="start_actions">

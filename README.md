@@ -19,7 +19,9 @@ Once the game starts, the second screen provides:
     | 👍 - 🗡️ | Player is being attacked |
     | ⚠️ - 🛡️ | Player is being protected |
     | 🅿️ - ⛔ | Player have used its power |
-    | 🙂 - 👿 | Player is cursed |
+    | 🙂 - 👿 | Player is cursed (only when using the cursed) |
+    | 🙂 - ✨ | Player is enchanted (only when using the enchanter) |
+    | 🙂 - 🐺 | Player has turned into a wolf (only when using the werewolf or wolf queen) |
 - A turn order system that guides the narrator through each phase of the night and day
 - A notes section where the narrator can keep track of important information during gameplay
 
