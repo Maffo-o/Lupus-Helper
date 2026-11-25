@@ -1,0 +1,40 @@
+const translations = {
+  it: {
+    title: "Lupus in Tabula",
+    languageButton: "🇮🇹",
+    drunkRoleLabel: "Ubriacone",
+    drunkPowerDisclosure: "Scopri il tuo ruolo solo dopo alcuni turni a discrezione del narratore",
+    playersHeading: "Inserisci i giocatori",
+    rolesHeading: "Seleziona i ruoli",
+    playerNamePlaceholder: "Nome giocatore",
+    notesHeading: "Note",
+    playersLabel: "Giocatori",
+    currentTurnHeading: "Turno corrente",
+    tooManyRoles: "Ci sono troppi ruoli per i giocatori inseriti",
+    notEnoughRoles: "Non ci sono abbastanza ruoli per i giocatori inseriti",
+    minimumPlayers: "Servono minimo 6 giocatori per iniziare",
+    resetButton: "Resetta",
+    startGame: "Inizia partita",
+    endGame: "Termina partita",
+  },
+  en: {
+    title: "Lupus in Tabula",
+    languageButton: "🇬🇧",
+    drunkRoleLabel: "Drunk",
+    drunkPowerDisclosure: "You discover your role only after a few turns, at the narrator's discretion.",
+    playersHeading: "Enter new players",
+    rolesHeading: "Select roles",
+    playerNamePlaceholder: "Player name",
+    notesHeading: "Notes",
+    playersLabel: "Players",
+    currentTurnHeading: "Current turn",
+    tooManyRoles: "There are too many roles for the number of players",
+    notEnoughRoles: "There are not enough roles for the number of players",
+    minimumPlayers: "At least 6 players are required to start",
+    resetButton: "Reset",
+    startGame: "Start Game",
+    endGame: "End Game",
+  }
+};
+
+export default translations;

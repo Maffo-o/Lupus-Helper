@@ -4,6 +4,8 @@ import RolesList from './components/rolesList'
 import PairList from './components/pairList'
 import Note from './components/note'
 import Turn from './components/turn'
+import Header from './components/header'
+import translations from './components/translations'
 import './index.css'
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
   const [useCurse, setCurse] = useState(-1);
   const [useDrunk, setDrunk] = useState(-1);
   const [shouldStart, setStart] = useState(false);
+  const [language, setLanguage] = useState('it');
+  const [listResetKey, setListResetKey] = useState(0);
+  const currentTranslations = translations[language];
   useEffect(() => {
     if (shouldStart) {
       StartGame();
@@ -43,18 +48,16 @@ function App() {
 
     if (playerTempList.length >= 6) {
       if (filteredRoles.length > playerTempList.length)
-        alert("Ci sono troppi ruoli per i giocatori inseriti");
+        alert(currentTranslations.tooManyRoles);
       else if (filteredRoles.length < playerTempList.length)
-        alert("Non ci sono abbastanza ruoli per i giocatori inseriti");
+        alert(currentTranslations.notEnoughRoles);
       else
         setStart(true);
     }
     else
-      alert("Servono minimo 6 giocatori per iniziare");
+      alert(currentTranslations.minimumPlayers);
   }
   function StartGame() {
-    const button = document.getElementById("game_button");
-    button.innerHTML = "Termina partita";
     setSelection(false);
 
     let tempList = [...rolesTempList];
@@ -67,32 +70,58 @@ function App() {
       name: "Lupi",
       team: "Lupi",
       order: 8,
-      power: "I ruoli nella squadra dei lupi, si svegliano tutti insieme e decidono chi uccidere"
+      power: "I ruoli nella squadra dei lupi, si svegliano tutti insieme e decidono chi uccidere",
+      translations: {
+        en: {
+          name: "Wolves",
+          power: "The wolves wake together and decide which player to kill."
+        }
+      }
     });
     tempList.sort((a, b) => a.order - b.order);
     tempList.push({
       name: "Giorno",
-      power: "Tutti i giocatori si svegliano per discutere e decidere chi linciare"
+      power: "Tutti i giocatori si svegliano per discutere e decidere chi linciare",
+      translations: {
+        en: {
+          name: "Day",
+          power: "All players wake up to discuss and decide whom to lynch."
+        }
+      }
     });
     setOrder(tempList);
   }
   function ResetGame() {
     location.reload();
   }
+  function ResetSelection() {
+    localStorage.removeItem('lupus-helper.players');
+    localStorage.removeItem('lupus-helper.roles');
+    setTempPlayers([]);
+    setTempRoles([]);
+    setOrder([]);
+    setCurse(-1);
+    setDrunk(-1);
+    setStart(false);
+    setListResetKey(key => key + 1);
+  }
 
   return <>
     <section className="center">
-      <div>
-        <h1><a className="title_link" href="https://github.com/Maffo-o/Lupus-Helper" target="_blank" rel="noopener noreferrer">Lupus in Tabula</a></h1>
+      <Header language={language} onLanguageChange={setLanguage} />
+      {selection == true && <PlayersList key={`players-${listResetKey}`} onSet={setTempPlayers} language={language}/>}
+      {selection == true && <RolesList key={`roles-${listResetKey}`} onSet={setTempRoles} setOrder={setOrder} language={language}/>}
+      {selection == false && <PairList playersList={playerTempList} rolesList={rolesTempList} setOrder={setOrder} curse={useCurse} drunk={useDrunk} language={language}/>}
+      {selection == false && <Turn turnOrder={turnOrder} language={language}></Turn>}
+      {selection == false && <Note language={language}></Note>}
+      <div className="start_actions">
+        <button className="button start_button" id="game_button" onClick={selection ? CheckCanStart : ResetGame}>
+          {selection ? currentTranslations.startGame : currentTranslations.endGame}
+        </button>
+        {selection && <button className="button start_button" onClick={ResetSelection}>
+          {currentTranslations.resetButton}
+        </button>}
       </div>
-      {selection == true && <PlayersList onSet={setTempPlayers}/>}
-      {selection == true && <RolesList onSet={setTempRoles} setOrder={setOrder}/>}
-      {selection == false && <PairList playersList={playerTempList} rolesList={rolesTempList} setOrder={setOrder} curse={useCurse} drunk={useDrunk}/>}
-      {selection == false && <Turn turnOrder={turnOrder}></Turn>}
-      {selection == false && <Note></Note>}
-      <button className="button start_button" id="game_button" onClick={CheckCanStart}>
-        Inizia partita
-      </button>
     </section>
   </>
 }

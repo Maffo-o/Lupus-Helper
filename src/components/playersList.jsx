@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import PlayersListElement from './playersListElement' 
+import translations from './translations'
 import '../index.css'
 
-function PlayersList({onSet}) {
+function PlayersList({onSet, language}) {
+    const currentTranslations = translations[language];
     
     const [playersList, setPlayers] = useState(() => {
         const savedPlayers = JSON.parse(localStorage.getItem('lupus-helper.players') || '[]');
@@ -35,18 +37,18 @@ function PlayersList({onSet}) {
 
     return <>
         <div>
-            <h2>Inserisci i giocatori</h2>
+            <h2>{currentTranslations.playersHeading}</h2>
         </div>
         <div className="player_input">
-            <input id="new_player" className="input_field" type="text" placeholder="Nome giocatore" maxLength={10} onKeyPress={OnInputKeyPress}></input>
-            <button className="button input_button" onClick={OnAddElement}>
+            <input id="new_player" className="input_field" type="text" placeholder={currentTranslations.playerNamePlaceholder} maxLength={10} onKeyPress={OnInputKeyPress}></input>
+            <button className="button input_button" onClick={OnAddElement} aria-label={currentTranslations.addPlayerButton}>
             ➕
             </button>
         </div>
         <div>
             <ol className="full_list list_short">
             {playersList.map((element, index) =>
-                <PlayersListElement className="element_text" element={element} index={index} onDelete={OnDeleteElement} key={index}/>
+                <PlayersListElement className="element_text" element={element} index={index} onDelete={OnDeleteElement} language={language} key={index}/>
             )}
             </ol>
         </div>

@@ -1,7 +1,8 @@
-import playersList from './playersList' 
+import translations from './translations'
 import '../index.css'
 
-function PlayersListElement({element, index, onDelete}) {
+function PlayersListElement({element, index, onDelete, language}) {
+    const currentTranslations = translations[language];
 
     function OnDelete() {
       onDelete(index)
@@ -9,7 +10,7 @@ function PlayersListElement({element, index, onDelete}) {
 
     return <div>
         <span className="list_element">{element}</span>
-        <button className="button" onClick={OnDelete}>
+        <button className="button" onClick={OnDelete} aria-label={`${currentTranslations.removePlayerButton} ${element}`}>
           ❌
         </button>
     </div>

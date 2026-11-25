@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import RolesListElement from './rolesListElement' 
 import { rolesList as availableRoles } from './rolesData'
+import translations from './translations'
 import '../index.css'
 
-function RolesList({onSet, setOrder}) {
+function RolesList({onSet, setOrder, language}) {
+    const currentTranslations = translations[language];
 
     const [rolesList, setRoles] = useState(() => {
         const savedAmounts = JSON.parse(localStorage.getItem('lupus-helper.roles') || '{}');
@@ -16,7 +18,13 @@ function RolesList({onSet, setOrder}) {
         const selectedRoles = [];
         rolesList.forEach(element => {
             for (let i = 0; i < element.amount; i++)
-                selectedRoles.push({ name: element.name, team: element.team, order: element.order, power: element.power });
+                selectedRoles.push({
+                    name: element.name,
+                    team: element.team,
+                    order: element.order,
+                    power: element.power,
+                    translations: element.translations
+                });
         });
         const savedAmounts = Object.fromEntries(rolesList.map(role => [role.name, role.amount]));
         localStorage.setItem('lupus-helper.roles', JSON.stringify(savedAmounts));
@@ -44,12 +52,12 @@ function RolesList({onSet, setOrder}) {
 
     return <>
         <div>
-            <h2>Seleziona i ruoli</h2>
+            <h2>{currentTranslations.rolesHeading}</h2>
         </div>
         <div>
             <ol className="full_list">
             {rolesList.map((element, index) =>
-                <RolesListElement className="element_text" element={element} prevElement={index == 0 ? rolesList[index] : rolesList[index -1]} index={index} onEdit={OnEdit} key={index}/>
+                <RolesListElement className="element_text" element={element} prevElement={index == 0 ? rolesList[index] : rolesList[index -1]} index={index} onEdit={OnEdit} language={language} key={index}/>
             )}
             </ol>      
         </div>
