@@ -8,6 +8,16 @@
   src: url(./assets/Mezalia_Sans_Bold.otf);
 }
 
+@font-face {
+  font-family: Noto-Emoji;
+  src: url(./assets/Noto_Color_Emoji.ttf);
+}
+
+@font-face {
+  font-family: Microsoft-Emoji;
+  src: url(./assets/Fluent_Emoji_Flat.ttf);
+}
+
 *,
 *::before,
 *::after {
@@ -40,6 +50,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-variant-emoji: unicode;
 
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -233,6 +244,7 @@ p {
   border: 2px solid transparent;
   transition: border-color 0.3s;
   cursor: pointer;
+  font-family: "Microsoft-Emoji";
 
   @media (max-width: 600px) {
     margin-right: 5px;
@@ -298,7 +310,7 @@ p {
   @media (max-width: 400px) {
     width: 180px;
     font-size: 20px;
-    padding: 6px 10px;
+    padding: 10px 10px 6px;
   }
 
   &:hover {
@@ -454,7 +466,7 @@ input[type=text] {
 
   .full_list:not(.list_long) > div > .list_element {
     min-height: 44px;
-    padding: 8px 10px;
+    padding: 8px 10px 6px;
     line-height: 1.25;
   }
 

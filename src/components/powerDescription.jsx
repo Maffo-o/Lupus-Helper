@@ -1,15 +1,19 @@
 import '../index.css'
 import { useEffect } from 'react'
 
-function Modal({ isOpen, title, content, onClose }) {
+function PowerDescription({ isOpen, title, content, onClose }) {
     useEffect(() => {
         if (isOpen) {
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
             document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = scrollbarWidth + 'px';
         } else {
             document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
         }
         return () => {
             document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
         };
     }, [isOpen]);
 
@@ -35,4 +39,4 @@ function Modal({ isOpen, title, content, onClose }) {
     )
 }
 
-export default Modal
+export default PowerDescription

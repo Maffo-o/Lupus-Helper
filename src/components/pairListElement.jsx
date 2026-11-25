@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PairButton from './pairButton' 
-import Modal from './modal'
+import PowerPopup from './powerPopup'
 import translations from './translations'
 import '../index.css'
 
@@ -54,7 +54,7 @@ function PairListElement({element, name, index, rolesList, curse, drunk, languag
         <PairButton className="element_text" index={i} element={element} siblings={siblings} isAlive={alive} setAlive={ChangeAlive} curseElement={index} curse={curse} drunk={drunk == index} key={i}/>
       )}
     </div>
-    <Modal 
+    <PowerPopup 
       isOpen={isModalOpen}
       title={localizedRole.name}
       content={modalContent}

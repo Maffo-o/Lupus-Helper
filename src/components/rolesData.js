@@ -6,7 +6,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Non può essere ucciso dai lupi ma muore automaticamente dopo alcune notti a discrezione del narratore"
+            power: "Non può essere ucciso dai lupi ma muore automaticamente dopo alcune notti a discrezione del narratore",
+            singleUsePower: 0
         },
         {
             name: "Appestato",
@@ -14,7 +15,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Quando vieni ucciso dai lupi, la notte seguente non potranno uccidere nessuno, in modo simile se vieni linciato, il giorno dopo non ci sarà un linciaggio"
+            power: "Quando vieni ucciso dai lupi, la notte seguente non potranno uccidere nessuno, in modo simile se vieni linciato, il giorno dopo non ci sarà un linciaggio",
+            singleUsePower: 0
         },
         {
             name: "Bambina",
@@ -22,7 +24,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 1,
-            power: "Di notte quando i lupi si svegliano puoi cercare di spiare ma se vieni scoperta muori in aggiunta al giocatore scelto dai lupi"
+            power: "Di notte quando i lupi si svegliano puoi cercare di spiare ma se vieni scoperta muori in aggiunta al giocatore scelto dai lupi",
+            singleUsePower: 0
         },
         {
             name: "Cacciatore",
@@ -30,7 +33,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Quando muori, durante il linciaggio o ucciso dai lupi, scegli un altro giocatore da uccidere immediatamente"
+            power: "Quando muori, durante il linciaggio o ucciso dai lupi, scegli un altro giocatore da uccidere immediatamente",
+            singleUsePower: 0
         },
         {
             name: "Capro Espiatorio",
@@ -38,7 +42,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Durante il giorno, quando il narratore annuncia i morti, puoi sacrificarti  per far tornare in vita uno dei giocatori morti quella notte"
+            power: "Durante il giorno, quando il narratore annuncia i morti, puoi sacrificarti  per far tornare in vita uno dei giocatori morti quella notte",
+            singleUsePower: 0
         },
         {
             name: "Confessore",
@@ -46,7 +51,8 @@ const rolesByTeam = {
             amount: 0,
             order: 12,
             max: 1,
-            power: "Una volta per partita, di notte, scegli un giocatore, il giocatore scelto dopo essersi svegliato dovrà mostrare la sua carta ad un altro giocatore a sua scelta"
+            power: "Una volta per partita, di notte, scegli un giocatore, il giocatore scelto dopo essersi svegliato dovrà mostrare la sua carta ad un altro giocatore a sua scelta",
+            singleUsePower: 0
         },
         {
             name: "Consigliere",
@@ -54,7 +60,8 @@ const rolesByTeam = {
             amount: 0,
             order: 12,
             max: 1,
-            power: "Ogni notte puoi scegliere un giocatore a parte te stesso e decidere il voto di quel giocatore varrà doppio o sarà nullo per quel giorno"
+            power: "Ogni notte puoi scegliere un giocatore a parte te stesso e decidere il voto di quel giocatore varrà doppio o sarà nullo per quel giorno",
+            singleUsePower: 0
         },
         {
             name: "Contadino",
@@ -62,7 +69,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 99,
-            power: "Ruolo di base della squadra del villaggio"
+            power: "Ruolo di base della squadra del villaggio",
+            singleUsePower: 0
         },
         {
             name: "Cortigiana",
@@ -70,7 +78,8 @@ const rolesByTeam = {
             amount: 0,
             order: 6,
             max: 1,
-            power: "Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te"
+            power: "Ogni notte puoi scegliere un giocatore, quel giocatore è immune a qualsiasi potere per quella notte, se muori però, anche il giocatore scelto morirà con te",
+            singleUsePower: 0
         },
         {
             name: "Gemelli",
@@ -78,7 +87,8 @@ const rolesByTeam = {
             amount: 0,
             order: 1,
             max: 2,
-            power: "Entrambi sanno chi è l'altro gemello, se uno dei due muore anche l'altro subisce la stessa sorte"
+            power: "Entrambi sanno chi è l'altro gemello, se uno dei due muore anche l'altro subisce la stessa sorte",
+            singleUsePower: 0
         },
         {
             name: "Guardiano",
@@ -86,7 +96,8 @@ const rolesByTeam = {
             amount: 0,
             order: 6,
             max: 1,
-            power: "Ogni notte puoi scegliere un giocatore da proteggere per quella notte"
+            power: "Ogni notte puoi scegliere un giocatore da proteggere per quella notte",
+            singleUsePower: 0
         },
         {
             name: "Guardone",
@@ -94,7 +105,8 @@ const rolesByTeam = {
             amount: 0,
             order: 3,
             max: 1,
-            power: "Ogni notte scegli un giocatore e se si sveglia di notte, ti svegli insieme a lui, se appartiene alla squadra dei lupi, tu muori"
+            power: "Ogni notte scegli un giocatore e se si sveglia di notte, ti svegli insieme a lui, se appartiene alla squadra dei lupi, tu muori",
+            singleUsePower: 0
         },
         {
             name: "Investigatore",
@@ -102,7 +114,8 @@ const rolesByTeam = {
             amount: 0,
             order: 5,
             max: 1,
-            power: "Ogni notte scegli due giocatori escluso te stesso per scoprire se appartengono alla stessa squadra"
+            power: "Ogni notte scegli due giocatori escluso te stesso per scoprire se appartengono alla stessa squadra",
+            singleUsePower: 0
         },
         {
             name: "Licantropo",
@@ -110,7 +123,8 @@ const rolesByTeam = {
             amount: 0,
             order: 14,
             max: 99,
-            power: "Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire"
+            power: "Fai parte della squadra del villaggio ma la prima volta che vieni ucciso dai lupi ti unisci alla loro squadra al posto di morire",
+            singleUsePower: 0
         },
         {
             name: "Massoni",
@@ -118,7 +132,8 @@ const rolesByTeam = {
             amount: 0,
             order: 14,
             max: 99,
-            power: "I massoni sanno chi sono gli altri massoni, nessun giocatore può parlare direttamente o indirettamente dei massoni, chi lo fa verrà ucciso quella notte dalla società segreta. I massoni si svegliano ogni notte per ultimi e vengono informati di quale giocatore ha usato un potere su uno di loro, non sanno né di che potere si tratta né su che membro del gruppo"
+            power: "I massoni sanno chi sono gli altri massoni, nessun giocatore può parlare direttamente o indirettamente dei massoni, chi lo fa verrà ucciso quella notte dalla società segreta. I massoni si svegliano ogni notte per ultimi e vengono informati di quale giocatore ha usato un potere su uno di loro, non sanno né di che potere si tratta né su che membro del gruppo",
+            singleUsePower: 0
         },
         {
             name: "Oracolo",
@@ -126,7 +141,8 @@ const rolesByTeam = {
             amount: 0,
             order: 5,
             max: 1,
-            power: "Ogni notte puoi vedere uno dei ruoli di uno dei giocatori morti la notte precedente"
+            power: "Ogni notte puoi vedere uno dei ruoli di uno dei giocatori morti la notte precedente",
+            singleUsePower: 0
         },
         {
             name: "Paranoico",
@@ -134,7 +150,8 @@ const rolesByTeam = {
             amount: 0,
             order: 5,
             max: 1,
-            power: "Ogni notte sai se ci sono dei giocatori della squadra dei lupi nelle tue vicinanze"
+            power: "Ogni notte sai se ci sono dei giocatori della squadra dei lupi nelle tue vicinanze",
+            singleUsePower: 0
         },
         {
             name: "Postino",
@@ -142,7 +159,8 @@ const rolesByTeam = {
             amount: 0,
             order: 2,
             max: 1,
-            power: "Durante la prima notte, ti svegli e puoi scegliere uno dei tuoi due vicini di posto e rivelargli la tua carta"
+            power: "Durante la prima notte, ti svegli e puoi scegliere uno dei tuoi due vicini di posto e rivelargli la tua carta",
+            singleUsePower: 0
         },
         {
             name: "Principe",
@@ -150,7 +168,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Se verresti ucciso di notte, l'attacco viene invece deviato su uno dei tuoi due vicini di posto originali"
+            power: "Se verresti ucciso di notte, l'attacco viene invece deviato su uno dei tuoi due vicini di posto originali",
+            singleUsePower: 0
         },
         {
             name: "Sacerdote",
@@ -158,7 +177,8 @@ const rolesByTeam = {
             amount: 0,
             order: 5,
             max: 1,
-            power: "Ogni notte se uno o più giocatori sono stati uccisi la notte precedente, puoi guardare il ruolo di uno di essi"
+            power: "Ogni notte se uno o più giocatori sono stati uccisi la notte precedente, puoi guardare il ruolo di uno di essi",
+            singleUsePower: 0
         },
         {
             name: "Sfigato",
@@ -166,7 +186,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Appari nella squadra dei lupi se ispezionato ma appartieni alla squadra del villaggio"
+            power: "Appari nella squadra dei lupi se ispezionato ma appartieni alla squadra del villaggio",
+            singleUsePower: 0
         },
         {
             name: "Sindaco",
@@ -174,7 +195,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "La prima volta che vieni linciato, puoi rivelare il tuo ruolo e salvarti, da quel momento il tuo voto per il linciaggio vale doppio e in caso di parità scegli tu chi viene linciato"
+            power: "La prima volta che vieni linciato, puoi rivelare il tuo ruolo e salvarti, da quel momento il tuo voto per il linciaggio vale doppio e in caso di parità scegli tu chi viene linciato",
+            singleUsePower: 0
         },
         {
             name: "Veggente",
@@ -182,7 +204,8 @@ const rolesByTeam = {
             amount: 0,
             order: 5,
             max: 1,
-            power: "Ogni notte puoi scoprire se un giocatore appartiene alla squadra dei lupi o no"
+            power: "Ogni notte puoi scoprire se un giocatore appartiene alla squadra dei lupi o no",
+            singleUsePower: 0
         },
     ],
     Lupi: [
@@ -192,7 +215,8 @@ const rolesByTeam = {
             amount: 0,
             order: 7,
             max: 1,
-            power: "Non ti svegli coi lupi e appari come buono se ispezionato. Ogni notte puoi decidere se svegliarti con i lupi, se lo fai d’ora in poi dovrai svegliarti sempre con loro e perdi l’abilità di apparire come buono se ispezionato"
+            power: "Non ti svegli coi lupi e appari come buono se ispezionato. Ogni notte puoi decidere se svegliarti con i lupi, se lo fai d’ora in poi dovrai svegliarti sempre con loro e perdi l’abilità di apparire come buono se ispezionato",
+            singleUsePower: 0
         },
         {
             name: "Burattinaio",
@@ -200,7 +224,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 1,
-            power: "Se durante il linciaggio voti per il giocatore con il secondo maggior numero di voti, verrà ucciso al posto di quello più votato"
+            power: "Se durante il linciaggio voti per il giocatore con il secondo maggior numero di voti, verrà ucciso al posto di quello più votato",
+            singleUsePower: 0
         },
         {
             name: "Carceriere",
@@ -208,7 +233,8 @@ const rolesByTeam = {
             amount: 0,
             order: 9,
             max: 1,
-            power: "Ogni due notti scegli un giocatore che non potrà svegliarsi quel giorno"
+            power: "Ogni due notti scegli un giocatore che non potrà svegliarsi quel giorno",
+            singleUsePower: 0
         },
         {
             name: "Cucciolo di Lupo",
@@ -216,7 +242,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 1,
-            power: "Se vieni eliminato, la notte successiva i lupi potranno eliminare due giocatori"
+            power: "Se vieni eliminato, la notte successiva i lupi potranno eliminare due giocatori",
+            singleUsePower: 0
         },
         {
             name: "Cultisti",
@@ -224,7 +251,8 @@ const rolesByTeam = {
             amount: 0,
             order: 1,
             max: 99,
-            power: "Sai chi sono i lupi e vinci con loro ma i lupi non sanno chi sono i cultisti, non ti svegli insieme ai lupi per uccidere. Appaiono come buoni se ispezionati ma sono nella squadra dei lupi"
+            power: "Sai chi sono i lupi e vinci con loro ma i lupi non sanno chi sono i cultisti, non ti svegli insieme ai lupi per uccidere. Appaiono come buoni se ispezionati ma sono nella squadra dei lupi",
+            singleUsePower: 0
         },
         {
             name: "Fattucchiera",
@@ -232,7 +260,8 @@ const rolesByTeam = {
             amount: 0,
             order: 4,
             max: 1,
-            power: "Ogni notte scegli un giocatore, se il suo ruolo viene ispezionato, apparirà della squadra opposta per quel turno"
+            power: "Ogni notte scegli un giocatore, se il suo ruolo viene ispezionato, apparirà della squadra opposta per quel turno",
+            singleUsePower: 0
         },
         {
             name: "Lupo",
@@ -240,7 +269,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 99,
-            power: "Ruolo di base della squadra dei lupi, di notte si svegliano tutti insieme e decidono chi uccidere"
+            power: "Ruolo di base della squadra dei lupi, di notte si svegliano tutti insieme e decidono chi uccidere",
+            singleUsePower: 0
         },
         {
             name: "Lupo Grasso",
@@ -248,7 +278,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 1,
-            power: "Finché sei vivo i due giocatori vicini a te appariranno nella squadra dei lupi se esaminati"
+            power: "Finché sei vivo i due giocatori vicini a te appariranno nella squadra dei lupi se esaminati",
+            singleUsePower: 0
         },
         {
             name: "Lupo Non-Morto",
@@ -256,7 +287,8 @@ const rolesByTeam = {
             amount: 0,
             order: 8,
             max: 1,
-            power: "Puoi segretamente votare per il linciaggio durante il giorno anche da morto"
+            power: "Puoi segretamente votare per il linciaggio durante il giorno anche da morto",
+            singleUsePower: 0
         },
         {
             name: "Matriarca",
@@ -264,7 +296,8 @@ const rolesByTeam = {
             amount: 0,
             order: 9,
             max: 1,
-            power: "Una sola volta per partita, scegli se il giocatore ucciso dai lupi, al posto di morire, si trasformerà in un lupo, anche se difeso"
+            power: "Una sola volta per partita, scegli se il giocatore ucciso dai lupi, al posto di morire, si trasformerà in un lupo, anche se difeso",
+            singleUsePower: 1
         },
         {
             name: "Stregone",
@@ -272,7 +305,8 @@ const rolesByTeam = {
             amount: 0,
             order: 9,
             max: 1,
-            power: "Una volta per partita puoi scambiare il ruolo di due giocatori, se uno dei due era un lupo, dopo aver ricevuto il nuovo ruolo, muore"
+            power: "Una volta per partita puoi scambiare il ruolo di due giocatori, se uno dei due era un lupo, dopo aver ricevuto il nuovo ruolo, muore",
+            singleUsePower: 1
         },
     ],
     Neutrale: [
@@ -282,7 +316,8 @@ const rolesByTeam = {
             amount: 0,
             order: 15,
             max: 1,
-            power: "Una sola volta per partita, quando un giocatore muore di notte, puoi scambiare il tuo ruolo con il suo, da adesso in poi avrai il suo potere e farai parte di quella squadra"
+            power: "Una sola volta per partita, quando un giocatore muore di notte, puoi scambiare il tuo ruolo con il suo, da adesso in poi avrai il suo potere e farai parte di quella squadra",
+            singleUsePower: 1
         },
         {
             name: "Criceto Mannaro",
@@ -290,7 +325,8 @@ const rolesByTeam = {
             amount: 0,
             order: 10,
             max: 1,
-            power: "Ti svegli insieme ai lupi ma non sanno che sei il criceto, ti svegli di nuovo dopo di loro e puoi uccidere un altro giocatore (anche lupi), non sei immune all'eliminazione dei lupi, se resti l'unico vivo vinci"
+            power: "Ti svegli insieme ai lupi ma non sanno che sei il criceto, ti svegli di nuovo dopo di loro e puoi uccidere un altro giocatore (anche lupi), non sei immune all'eliminazione dei lupi, se resti l'unico vivo vinci",
+            singleUsePower: 0
         },
         {
             name: "Innamorati",
@@ -298,7 +334,8 @@ const rolesByTeam = {
             amount: 0,
             order: 1,
             max: 2,
-            power: "Se alla fine del giorno sono seduti vicini, vincono. Se uno muore anche l’altro muore"
+            power: "Se alla fine del giorno sono seduti vicini, vincono. Se uno muore anche l’altro muore",
+            singleUsePower: 0
         },
         {
             name: "Maledetto",
@@ -306,7 +343,8 @@ const rolesByTeam = {
             amount: 0,
             order: 16,
             max: 1,
-            power: "Ogni notte scegli un giocatore e dagli questa carta, a fine partita chi ha il ruolo del maledetto perde"
+            power: "Ogni notte scegli un giocatore e dagli questa carta, a fine partita chi ha il ruolo del maledetto perde",
+            singleUsePower: 0
         },
         {
             name: "Pifferaio",
@@ -314,7 +352,8 @@ const rolesByTeam = {
             amount: 0,
             order: 13,
             max: 1,
-            power: "Ogni notte i giocatori incantati si svegliano insieme al pifferaio e scelgono che giocatore incantare, se tutti i giocatori vivi sono incantati vincono"
+            power: "Ogni notte i giocatori incantati si svegliano insieme al pifferaio e scelgono che giocatore incantare, se tutti i giocatori vivi sono incantati vincono",
+            singleUsePower: 0
         },
         {
             name: "Piromane",
@@ -322,7 +361,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "A inizio partita i giocatori vengono divisi in due secondo un criterio deciso dal narratore (altezza, colore capelli, sesso...), vinci se tutti i giocatori del gruppo a cui non appartieni muoiono"
+            power: "A inizio partita i giocatori vengono divisi in due secondo un criterio deciso dal narratore (altezza, colore capelli, sesso...), vinci se tutti i giocatori del gruppo a cui non appartieni muoiono",
+            singleUsePower: 0
         },
         {
             name: "Scemo del Villaggio",
@@ -330,7 +370,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Vinci se riesci a farti linciare dal villaggio"
+            power: "Vinci se riesci a farti linciare dal villaggio",
+            singleUsePower: 0
         },
         {
             name: "Sicario",
@@ -338,7 +379,8 @@ const rolesByTeam = {
             amount: 0,
             order: -1,
             max: 1,
-            power: "Se verresti ucciso di notte, uccidi invece una persona casuale scelta dal narratore appartenente alla squadra opposta di quella che ti avrebbe ucciso. Se a fine partita è ancora vivo, vince al posto della squadra che avrebbe vinto normalmente"
+            power: "Se verresti ucciso di notte, uccidi invece una persona casuale scelta dal narratore appartenente alla squadra opposta di quella che ti avrebbe ucciso. Se a fine partita è ancora vivo, vince al posto della squadra che avrebbe vinto normalmente",
+            singleUsePower: 0
         },
         {
             name: "Sosia",
@@ -346,7 +388,8 @@ const rolesByTeam = {
             amount: 0,
             order: 2,
             max: 1,
-            power: "A inizio partita scegli uno dei giocatori seduti vicino a te, d'ora in poi vinci con lui, se muore, anche tu muori"
+            power: "A inizio partita scegli uno dei giocatori seduti vicino a te, d'ora in poi vinci con lui, se muore, anche tu muori",
+            singleUsePower: 0
         },
         {
             name: "Ubriacone",
@@ -354,7 +397,8 @@ const rolesByTeam = {
             amount: 0,
             order: 15,
             max: 1,
-            power: "Scopri il tuo ruolo solo dopo alcuni turni a discrezione del narratore"
+            power: "Scopri il tuo ruolo solo dopo alcuni turni a discrezione del narratore",
+            singleUsePower: 0
         },
     ],
 };

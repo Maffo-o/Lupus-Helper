@@ -17,14 +17,13 @@ function Header({ language, onLanguageChange }) {
           onClick={() => window.open("https://github.com/Maffo-o/Lupus-Helper", "_blank")}
           title={currentTranslations.infoButtonTitle}
           aria-label={currentTranslations.infoButtonLabel}
-        >
-          ℹ️
-        </button>
+        >ℹ️</button>
         <button 
           className="button header_button language_button"
           onClick={handleLanguageToggle}
           title={currentTranslations.languageButtonTitle}
           aria-label={currentTranslations.languageButtonLabel}
+          style={{ fontFamily: "Noto-Emoji" }}
         >
           {currentTranslations.languageButton}
         </button>

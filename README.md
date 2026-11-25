@@ -1,14 +1,38 @@
 # Lupus Helper
-Un semplice helper per aiutare il narratore a gestire partite di Lupus in Tabula con più facilità.
-Non è pensato per sostituire il gioco cartaceo ma aiutare a gestirlo, inoltre non usa i ruoli standard di Lupus ma una semplice variante che utilizzo di solito con i miei amici, a seguire troverete una tabella con tutti i ruolo presenti in questo tool e le rispettive regole.
-È composto da solo due semplici schermate: 
-1) la prima schermata permette di impostare i nomi dei partecipanti e selezionare quali ruoli si vogliono utilizzare. Nomi e ruoli selezionati vengono salvati nel browser e ripristinati per le partite successive.
-![alt text](src/assets/screenshot1.png)
-2) la seconda è la schermata di gioco con semplici funzioni che permettono al narratore di tenere traccia di poteri, uccisioni...
-![alt text](src/assets/screenshot2.png)
+A simple assistant tool to help the narrator manage Lupus in Tabula games more easily. This tool is not intended to replace the physical game, but rather to assist in managing it. It uses a custom variant of Lupus rules that is commonly played with friends, rather than the standard roles.
 
-Carte Ruoli -> [Premi qui per scaricare le carte da stampare](https://drive.google.com/file/d/1Otb2JT-po8P2vSA9q9oxV-nDykezjb_W/view?usp=sharing)
+## The application features a two-screen interface:
+### Setup Screen
+The first screen allows players to:
+- Enter participant names
+- Select which roles are used in the game
+- Player names and selected roles are automatically saved in the browser and restored for future games
 
-Regole Ruoli -> [Premi qui per vedere le regole di ogni ruolo](https://docs.google.com/document/d/14FWfCJR8JljtEdLg39nSgWKPbp_zUiMSxppwzCfbhAw/edit?usp=sharing)
+### Game Screen
+Once the game starts, the second screen provides:
+- Role assignment display showing which player has which role and team affiliation
+- Under each player there are status buttons to track:
+    | Icon | Meaning |
+    |------|---------|
+    | 🧑‍🦰 - 💀 | Player alive or dead |
+    | 🟦 - 🟥 - 🟨 | Player faction |
+    | 👍 - 🗡️ | Player is being attacked |
+    | ⚠️ - 🛡️ | Player is being protected |
+    | 🅿️ - ⛔ | Player have used its power |
+    | 🙂 - 👿 | Player is cursed |
+- A turn order system that guides the narrator through each phase of the night and day
+- A notes section where the narrator can keep track of important information during gameplay
 
-Sito -> [Premi qui per andare al sito](https://werewolfgamehelper.altervista.org)
+## Game Flow
+1. **Player Setup** -> Input all player names and select the roles you want to use
+2. **Game Start** -> Roles are randomly assigned to each player
+3. **Night Phase** -> The narrator follows the turn order to wake up each role
+4. **Day Phase** -> All players discuss and vote to lynch someone, then a new night phase starts
+5. **Game End** -> Press the end button when a team wins to end the game
+
+## Resources
+[**Download printable role cards in ITA**](https://drive.google.com/file/d/1Otb2JT-po8P2vSA9q9oxV-nDykezjb_W/view?usp=sharing)
+
+[**View complete rules for each role in ITA**](https://docs.google.com/document/d/14FWfCJR8JljtEdLg39nSgWKPbp_zUiMSxppwzCfbhAw/edit?usp=sharing)
+
+[**Open Website**](https://werewolfgamehelper.altervista.org)

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import '../index.css'
-import Modal from './modal'
+import PowerPopup from './powerPopup'
 
 function RolesListElement({element, prevElement, index, onEdit, language}) {
     const localizedRole = element.translations?.[language] ?? element;
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     function OnAdd() {
         onEdit(index, 1);
@@ -13,7 +13,7 @@ function RolesListElement({element, prevElement, index, onEdit, language}) {
         onEdit(index, -1);
     }
     function ShowPower() {
-        setIsModalOpen(true);
+        setIsPopupOpen(true);
     }
     
     return <>
@@ -30,11 +30,11 @@ function RolesListElement({element, prevElement, index, onEdit, language}) {
             </button>
             <span className="list_element">{element.amount}</span>
         </div>
-        <Modal 
-            isOpen={isModalOpen}
+        <PowerPopup 
+            isOpen={isPopupOpen}
             title={localizedRole.name}
             content={localizedRole.power}
-            onClose={() => setIsModalOpen(false)}
+            onClose={() => setIsPopupOpen(false)}
         />
     </>
 }

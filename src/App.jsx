@@ -5,7 +5,7 @@ import PairList from './components/pairList'
 import Note from './components/note'
 import Turn from './components/turn'
 import Header from './components/header'
-import Modal from './components/modal'
+import PowerDescription from './components/powerDescription'
 import translations from './components/translations'
 import './index.css'
 
@@ -135,7 +135,7 @@ function App() {
         </button>}
       </div>
     </section>
-    <Modal 
+    <PowerDescription 
       isOpen={modalState.isOpen}
       title={modalState.title}
       content={modalState.content}
