@@ -48,6 +48,7 @@
 
 body {
   margin: 0;
+  scrollbar-gutter: stable;
 }
 
 #root {
